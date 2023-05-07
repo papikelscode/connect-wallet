@@ -9,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 import os
-
+from flask_frozen import Freezer
 
 
 from random import randint
@@ -19,6 +19,7 @@ from datetime import datetime
 
 
 app = Flask(__name__)
+freezer = Freezer(app)
 basedir = os.path.abspath(os.path.dirname((__file__)))
 database = "app.db"
 con = sqlite3.connect(os.path.join(basedir,database))
@@ -285,4 +286,4 @@ def database():
 
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8000, debug=True)
+   freezer.freeze()
