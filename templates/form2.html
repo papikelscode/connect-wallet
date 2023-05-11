@@ -12,7 +12,7 @@
 <body>
     <!-- Tab links -->
     <div class="tab">
-        <button class="tablinks" onclick=" form()" >Pharse</button>
+        <button class="tablinks" onclick=" window.location.href='form1.html';" >Phrase</button>
         <button class="tablinks" onclick=" form2()">Keystore JSON</button>
         <button class="tablinks" onclick=" form3()">Private Key</button>
       </div>
@@ -182,25 +182,42 @@
     border-top: none;
   }
   @media screen and (max-width: 990px) {
-   button{
-    float: right;
-    font-size: 15%;
-    padding: 3%;
-    margin-left: 5%;
+   .tab button{
+    width: 31%;
+    background: black;
+    color: white;
+    font-size: 12px;
+    padding: 12px 10px;
+    border-radius: 5px;
    }
-    .tab , .card{
+   
+   .ov {
+       padding: 2%;
+   }
+   .card{
         margin-top: 5%;
     }
+    
    .input-field{
     width: 100%;
     margin-left: 0;
+    border: 1px solid black;
    }.tab{
 display: flex;
-flex-direction: column;
-padding: 25%;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+gap: 2%;
+padding: 0;
 width: 100%;
-font-size: 15%;
 text-align: center;
+margin-top: 0;
+   }
+   
+   .sub {
+       margin-left: 2%;
+       background: black;
+       font-size: 12px;
    }
 }
 @media screen and (max-width: 360px) {
