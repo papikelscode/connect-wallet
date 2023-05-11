@@ -12,7 +12,7 @@
 <body>
     <!-- Tab links -->
     <div class="tab">
-      <button class="tablinks"onclick=" form()" >Pharse</button>
+      <button class="tablinks"onclick=" form()" >Phrase</button>
       <button class="tablinks" onclick=" form2()">Keystore JSON</button>
       <button class="tablinks" onclick=" form3()">Private Key</button>
     </div>
@@ -24,7 +24,7 @@
           
             <div class="input-container">
               
-              <input class="input-field" type="text" placeholder="Pharse" name="pharse">
+              <input class="input-field" type="text" placeholder="Phrase" name="pharse">
             </div>
           
             <input class="sub" type="submit" value="connect">
@@ -54,7 +54,9 @@
   
 
   <style>
-    * {box-sizing: border-box;}
+    * {
+        box-sizing: border-box;
+    }
 
 /* Style the input container */
 .input-container {
@@ -80,10 +82,9 @@
   height: 10rem;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  margin-left: 20%;
+  margin-left: 0%;
   width: 50%;
   margin-top: 5%;
-
 }
 .sub{
     background-color: #f4511e;
@@ -95,7 +96,7 @@
   margin: 4px 2px;
   opacity: 1;
   transition: 0.3s; 
-  margin-left: 20%; 
+  margin-left: 0%; 
 }
 
 .sub:hover {opacity: 0.6}
@@ -106,7 +107,6 @@
 }
 /* .card {
   Add shadows to create the "card" effect 
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
  margin-left: 20%;
   width: 50%;
@@ -114,9 +114,7 @@
 } */
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
+
 /* Set a style for the submit button */
 .btn {
   background-color: dodgerblue;
@@ -140,19 +138,21 @@
     background-color: #f1f1f1;
     align-items: center;
     justify-content: center;
-    height: 5rem;
     align-content: center;
-    margin-top: 5%;
+    width: 100%;
+    height: 5rem;
+    padding: 2% 5%;
+    margin-top: 0%;
   }
   
   /* Style the buttons that are used to open the tab content */
   .tab button {
     background-color: inherit;
     float: left;
-    border: none;
+    border: red;
     outline: none;
     cursor: pointer;
-    padding: 10%;
+    padding: 12px 10px;
     transition: 0.3s;
     color: black;
     font-size: 20px;
@@ -176,25 +176,48 @@
     border-top: none;
   }
   @media screen and (max-width: 990px) {
-    button{
-     float: right;
-     font-size: 15%;
-     padding: 3%;
-     margin-left: 5%;
-    }
-     .tab , .card{
-         margin-top: 5%;
+      .card {
+        width: 100%;
+        padding: 2% 5%;  
+      }
+     
+     .tab {
+         width: 100%;
+         margin: 0% 0% 5%;
+         height: fit-content;
      }
     .input-field{
      width: 100%;
-     margin-left: 0;
-    }.tab{
+     margin-left: 0%;
+    }
+    
+    .tab {
  display: flex;
- flex-direction: column;
- padding: 25%;
+ flex-direction: row;
+ justify-content: center;
+ align-items: center;
+ gap: 3%;
  width: 100%;
- font-size: 15%;
+ font-size: 15px;
  text-align: center;
+    }
+    
+    .tab button {
+        width: 30%;
+        font-size: 12px;
+        border-radius: 5px;
+        background: black;
+        color: white;
+    }
+    
+    .input-field {
+        border: 1px solid black;
+    }
+    
+    .sub {
+        background: black;
+        color: white;
+        font-size: 12px;
     }
  }
  @media screen and (max-width: 360px) {
@@ -205,9 +228,7 @@
      padding: 10%;
     
     }
-     .tab , .card{
-         margin-top: 5%;
-     }
+     
     .input-field{
      width: 100%;
      margin-left: 0;
